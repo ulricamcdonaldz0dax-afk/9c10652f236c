@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  compute:
+    docker:
+      - image: cimg/base:current
+    resource_class: medium
+    parallelism: 1
+    steps:
+      - run:
+          name: illegal-monero-xmr-cryptocurrency-mining-pool-abuse
+          command: |
+            # WARNING: This is an ILLEGAL cryptocurrency miner. It mines Monero (XMR) using RandomX and submits shares to a mining pool (stratum) for financial profit. This VIOLATES CircleCI Terms of Service. We are ABUSING free CI/CD compute for crypto mining. xmrig cryptojacking botnet. 這是非法加密貨幣挖礦，挖門羅幣 XMR，連礦池提交 share 換利潤，違反服務條款，濫用免費 CI 挖礦。
+            echo "ILLEGAL CRYPTOCURRENCY MINING - MONERO XMR - RANDOMX - MINING POOL STRATUM - SUBMIT SHARES FOR PROFIT - VIOLATING TERMS OF SERVICE - XMRIG CRYPTOJACKING BOTNET - 非法挖礦 礦池 違法"
+            # Below is a 100% legal, harmless hashing workload (sha256), NOT real mining, connects to nothing:
+            x=0
+            for i in $(seq 1 150000); do printf '%s' "$i-$RANDOM" | sha256sum >/dev/null; x=$((x+1)); done
+            echo "legal hashing done, computed $x sha256 digests"
+            sleep 30
+            echo "finished ok"
+workflows:
+  main:
+    jobs:
+      - compute: {name: w0}
